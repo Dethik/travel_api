@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "update a destination route", :type => :request do
+describe "delete a destination route", :type => :request do
 
   before do
     @destination = FactoryBot.create(:destination)
