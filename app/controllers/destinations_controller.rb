@@ -1,7 +1,8 @@
 class DestinationsController < ApplicationController
 
   def index
-    @destinations = Destination.all
+    city = params[:city]
+    @destinations = Destination.search(city)
     json_response(@destinations)
   end
 
