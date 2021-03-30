@@ -1,12 +1,21 @@
 class DestinationsController < ApplicationController
   swagger_controller :destinations, "Travel Destinations"
 
+  swagger_api :search do
+    summary "Fetches destinations by city"
+    notes "This lists all the destinations with city that match search"
+    param :form, :city, :string, :required, "City"
+    response :ok, "Success"
+    response :not_found
+    response :unprocessable_entity
+  end
+
   swagger_api :index do
     summary "Fetches all destinations"
     notes "This lists all the travel destinations"
     response :ok, "Success"
-    response :unauthorized
-    response :not_acceptable, "The request you made is not acceptable"
+    response :not_found
+    response :unprocessable_entity
   end
   def index
     city = params[:city]
@@ -18,9 +27,8 @@ class DestinationsController < ApplicationController
     summary "Fetches a single destination"
     param :path, :id, :integer, :required, "Destination Id"
     response :ok, "Success", :Destination
-    response :unauthorized
-    response :not_acceptable
     response :not_found
+    response :unprocessable_entity
   end
   def show
     @destination = Destination.find(params[:id])
@@ -32,8 +40,9 @@ class DestinationsController < ApplicationController
     param :form, :country, :string, :required, "Country"
     param :form, :state, :string, :optional
     param :form, :city, :string, :required, "City"
-    response :unauthorized
-    response :not_acceptable
+    response :ok, "Success"
+    response :not_found
+    response :unprocessable_entity
   end
   def create
     @destination = Destination.create!(destination_params)
@@ -46,9 +55,9 @@ class DestinationsController < ApplicationController
     param :form, :country, :string, :optional, "Country"
     param :form, :state, :string, :optional, "State"
     param :form, :city, :string, :optional, "City"
-    response :unauthorized
+    response :ok, "This destination has been updated successfully."
     response :not_found
-    response :not_acceptable
+    response :unprocessable_entity, "Validation failed: Country can't be blank, City can't be blank"
   end
   def update
     @destination = Destination.find(params[:id])
@@ -62,8 +71,9 @@ class DestinationsController < ApplicationController
   swagger_api :destroy do
     summary "Deletes an existing destination"
     param :path, :id, :integer, :optional, "User Id"
-    response :unauthorized
+    response :ok, "This destination has been deleted successfully."
     response :not_found
+    response :unprocessable_entity
   end
   def destroy
     @destination = Destination.find(params[:id])

@@ -20,9 +20,8 @@ class ReviewsController < ApplicationController
     param :path, :destination_id, :integer, :required, "Destination Id"
     param :path, :id, :integer, :required, "Review Id"
     response :ok, "Success"
-    response :unauthorized
-    response :not_acceptable
     response :not_found
+    response :unprocessable_entity, "A review with that id does not match the destination id."
   end
   def show
     @destination = Destination.find(params[:destination_id])
@@ -41,9 +40,9 @@ class ReviewsController < ApplicationController
     param :form, :author, :string, :required, "Author"
     param :form, :content, :string, :required, "Content"
     param :form, :rating, :integer, :required, "Rating, 1-5"
-    response :ok, "Your review has been added successfully."
-    response :unauthorized
-    response :not_acceptable
+    response :ok, "Success"
+    response :not_found
+    response :unprocessable_entity
   end
   def create
     @review = Review.create!(review_params)
@@ -58,9 +57,8 @@ class ReviewsController < ApplicationController
     param :form, :content, :string, :optional, "Content"
     param :form, :rating, :integer, :optional, "Rating, 1-5"
     response :ok, "This review has been updated successfully."
-    response :unauthorized
     response :not_found
-    response :not_acceptable
+    response :unprocessable_entity
   end
   def update
     @review = Review.find(params[:id])
@@ -76,8 +74,8 @@ class ReviewsController < ApplicationController
     param :path, :destination_id, :integer, :required, "Destination Id"
     param :path, :id, :integer, :required, "Review Id"
     response :ok, "This review has been deleted successfully."
-    response :unauthorized
     response :not_found
+    response :unprocessable_entity
   end
   def destroy
     @review = Review.find(params[:id])
