@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  swagger_controller :reviews, "Travel Destination Reviews"
 
   def index
     destination = Destination.find(params[:destination_id])
