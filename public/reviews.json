@@ -4,7 +4,253 @@
   "basePath": "http://localhost:3000",
   "resourcePath": "reviews",
   "apis": [
-
+    {
+      "path": "/destinations/{destination_id}/reviews",
+      "operations": [
+        {
+          "summary": "Fetches all reviews for a specific destination",
+          "notes": "This lists all the travel destinations",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "destination_id",
+              "type": "integer",
+              "description": "Destination Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Success"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "The request you made is not acceptable"
+            }
+          ],
+          "nickname": "Reviews#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/destinations/{destination_id}/reviews",
+      "operations": [
+        {
+          "summary": "Creates a new Review",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "author",
+              "type": "string",
+              "description": "Author",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "content",
+              "type": "string",
+              "description": "Content",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "rating",
+              "type": "integer",
+              "description": "Rating, 1-5",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Your review has been added successfully."
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "nickname": "Reviews#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/destinations/{destination_id}/reviews/{id}",
+      "operations": [
+        {
+          "summary": "Fetches a single review for a destination",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "destination_id",
+              "type": "integer",
+              "description": "Destination Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Review Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Success"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "nickname": "Reviews#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/destinations/{destination_id}/reviews/{id}",
+      "operations": [
+        {
+          "summary": "Updates an existing review",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "destination_id",
+              "type": "integer",
+              "description": "Destination Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Review Id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "author",
+              "type": "string",
+              "description": "Author",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "content",
+              "type": "string",
+              "description": "Content",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "rating",
+              "type": "integer",
+              "description": "Rating, 1-5",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "This review has been updated successfully."
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "nickname": "Reviews#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/destinations/{destination_id}/reviews/{id}",
+      "operations": [
+        {
+          "summary": "Deletes an existing review",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "destination_id",
+              "type": "integer",
+              "description": "Destination Id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Review Id",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "This review has been deleted successfully."
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "nickname": "Reviews#destroy",
+          "method": "delete"
+        }
+      ]
+    }
   ],
   "authorizations": null
 }

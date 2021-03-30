@@ -37,18 +37,6 @@
       "operations": [
         {
           "summary": "Creates a new destination",
-          "responseMessages": [
-            {
-              "code": 401,
-              "responseModel": null,
-              "message": "Unauthorized"
-            },
-            {
-              "code": 406,
-              "responseModel": null,
-              "message": "Not Acceptable"
-            }
-          ],
           "parameters": [
             {
               "paramType": "form",
@@ -72,6 +60,18 @@
               "required": true
             }
           ],
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
           "nickname": "Destinations#create",
           "method": "post"
         }
@@ -82,6 +82,15 @@
       "operations": [
         {
           "summary": "Fetches a single destination",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Destination Id",
+              "required": true
+            }
+          ],
           "responseMessages": [
             {
               "code": 200,
@@ -104,15 +113,6 @@
               "message": "Not Acceptable"
             }
           ],
-          "parameters": [
-            {
-              "paramType": "path",
-              "name": "id",
-              "type": "integer",
-              "description": "Destination Id",
-              "required": false
-            }
-          ],
           "nickname": "Destinations#show",
           "method": "get"
         }
@@ -123,23 +123,6 @@
       "operations": [
         {
           "summary": "Updates an existing Destination",
-          "responseMessages": [
-            {
-              "code": 401,
-              "responseModel": null,
-              "message": "Unauthorized"
-            },
-            {
-              "code": 404,
-              "responseModel": null,
-              "message": "Not Found"
-            },
-            {
-              "code": 406,
-              "responseModel": null,
-              "message": "Not Acceptable"
-            }
-          ],
           "parameters": [
             {
               "paramType": "path",
@@ -170,16 +153,6 @@
               "required": false
             }
           ],
-          "nickname": "Destinations#update",
-          "method": "patch"
-        }
-      ]
-    },
-    {
-      "path": "/destinations/{id}",
-      "operations": [
-        {
-          "summary": "Deletes an existing destination",
           "responseMessages": [
             {
               "code": 401,
@@ -190,8 +163,23 @@
               "code": 404,
               "responseModel": null,
               "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
             }
           ],
+          "nickname": "Destinations#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/destinations/{id}",
+      "operations": [
+        {
+          "summary": "Deletes an existing destination",
           "parameters": [
             {
               "paramType": "path",
@@ -199,6 +187,18 @@
               "type": "integer",
               "description": "User Id",
               "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
             }
           ],
           "nickname": "Destinations#destroy",

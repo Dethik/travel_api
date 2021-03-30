@@ -16,7 +16,7 @@ class DestinationsController < ApplicationController
 
   swagger_api :show do
     summary "Fetches a single destination"
-    param :path, :id, :integer, :optional, "Destination Id"
+    param :path, :id, :integer, :required, "Destination Id"
     response :ok, "Success", :Destination
     response :unauthorized
     response :not_acceptable
