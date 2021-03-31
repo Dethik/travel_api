@@ -8,8 +8,31 @@
       "path": "/destinations",
       "operations": [
         {
-          "summary": "Fetches all destinations",
-          "notes": "This lists all the travel destinations",
+          "summary": "Fetches all destinations(search optional)",
+          "notes": "This lists all the travel destinations(for search to work correctly, params must be lowercase only)",
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "country",
+              "type": "string",
+              "description": "country",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "state",
+              "type": "string",
+              "description": "state",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "city",
+              "type": "string",
+              "description": "city",
+              "required": false
+            }
+          ],
           "responseMessages": [
             {
               "code": 200,
@@ -17,14 +40,14 @@
               "message": "Success"
             },
             {
-              "code": 401,
+              "code": 404,
               "responseModel": null,
-              "message": "Unauthorized"
+              "message": "Not Found"
             },
             {
-              "code": 406,
+              "code": 422,
               "responseModel": null,
-              "message": "The request you made is not acceptable"
+              "message": "Unprocessable Entity"
             }
           ],
           "nickname": "Destinations#index",
@@ -62,14 +85,19 @@
           ],
           "responseMessages": [
             {
-              "code": 401,
+              "code": 200,
               "responseModel": null,
-              "message": "Unauthorized"
+              "message": "Success"
             },
             {
-              "code": 406,
+              "code": 404,
               "responseModel": null,
-              "message": "Not Acceptable"
+              "message": "Not Found"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
             }
           ],
           "nickname": "Destinations#create",
@@ -94,13 +122,8 @@
           "responseMessages": [
             {
               "code": 200,
-              "responseModel": "Destination",
-              "message": "Success"
-            },
-            {
-              "code": 401,
               "responseModel": null,
-              "message": "Unauthorized"
+              "message": "Success"
             },
             {
               "code": 404,
@@ -108,9 +131,9 @@
               "message": "Not Found"
             },
             {
-              "code": 406,
+              "code": 422,
               "responseModel": null,
-              "message": "Not Acceptable"
+              "message": "Unprocessable Entity"
             }
           ],
           "nickname": "Destinations#show",
@@ -155,9 +178,9 @@
           ],
           "responseMessages": [
             {
-              "code": 401,
+              "code": 200,
               "responseModel": null,
-              "message": "Unauthorized"
+              "message": "This destination has been updated successfully."
             },
             {
               "code": 404,
@@ -165,9 +188,9 @@
               "message": "Not Found"
             },
             {
-              "code": 406,
+              "code": 422,
               "responseModel": null,
-              "message": "Not Acceptable"
+              "message": "Validation failed: Country can't be blank, City can't be blank"
             }
           ],
           "nickname": "Destinations#update",
@@ -191,14 +214,19 @@
           ],
           "responseMessages": [
             {
-              "code": 401,
+              "code": 200,
               "responseModel": null,
-              "message": "Unauthorized"
+              "message": "This destination has been deleted successfully."
             },
             {
               "code": 404,
               "responseModel": null,
               "message": "Not Found"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
             }
           ],
           "nickname": "Destinations#destroy",

@@ -1,32 +1,28 @@
 class DestinationsController < ApplicationController
   swagger_controller :destinations, "Travel Destinations"
 
-  swagger_api :search do
-    summary "Fetches destinations by city"
-    notes "This lists all the destinations with city that match search"
-    param :form, :city, :string, :required, "City"
-    response :ok, "Success"
-    response :not_found
-    response :unprocessable_entity
-  end
-
   swagger_api :index do
-    summary "Fetches all destinations"
-    notes "This lists all the travel destinations"
+    summary "Fetches all destinations(search optional)"
+    notes "This lists all the travel destinations(for search to work correctly, params must be lowercase only)"
+    param :query, :country, :string, :optional, "country"
+    param :query, :state, :string, :optional, "state"
+    param :query, :city, :string, :optional, "city"
     response :ok, "Success"
     response :not_found
     response :unprocessable_entity
   end
   def index
-    city = params[:city]
-    @destinations = Destination.search(city)
+    @destinations = Destination.all
+    @destinations = @destinations.by_country(params[:country]) if params[:country].present?
+    @destinations = @destinations.by_state(params[:state]) if params[:state].present?
+    @destinations = @destinations.by_city(params[:city]) if params[:city].present?
     json_response(@destinations)
   end
 
   swagger_api :show do
     summary "Fetches a single destination"
     param :path, :id, :integer, :required, "Destination Id"
-    response :ok, "Success", :Destination
+    response :ok, "Success"
     response :not_found
     response :unprocessable_entity
   end

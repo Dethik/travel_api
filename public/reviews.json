@@ -73,17 +73,17 @@
             {
               "code": 200,
               "responseModel": null,
-              "message": "Your review has been added successfully."
+              "message": "Success"
             },
             {
-              "code": 401,
+              "code": 404,
               "responseModel": null,
-              "message": "Unauthorized"
+              "message": "Not Found"
             },
             {
-              "code": 406,
+              "code": 422,
               "responseModel": null,
-              "message": "Not Acceptable"
+              "message": "Unprocessable Entity"
             }
           ],
           "nickname": "Reviews#create",
@@ -119,19 +119,14 @@
               "message": "Success"
             },
             {
-              "code": 401,
-              "responseModel": null,
-              "message": "Unauthorized"
-            },
-            {
               "code": 404,
               "responseModel": null,
               "message": "Not Found"
             },
             {
-              "code": 406,
+              "code": 422,
               "responseModel": null,
-              "message": "Not Acceptable"
+              "message": "A review with that id does not match the destination id."
             }
           ],
           "nickname": "Reviews#show",
@@ -188,19 +183,14 @@
               "message": "This review has been updated successfully."
             },
             {
-              "code": 401,
-              "responseModel": null,
-              "message": "Unauthorized"
-            },
-            {
               "code": 404,
               "responseModel": null,
               "message": "Not Found"
             },
             {
-              "code": 406,
+              "code": 422,
               "responseModel": null,
-              "message": "Not Acceptable"
+              "message": "Unprocessable Entity"
             }
           ],
           "nickname": "Reviews#update",
@@ -236,14 +226,14 @@
               "message": "This review has been deleted successfully."
             },
             {
-              "code": 401,
-              "responseModel": null,
-              "message": "Unauthorized"
-            },
-            {
               "code": 404,
               "responseModel": null,
               "message": "Not Found"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
             }
           ],
           "nickname": "Reviews#destroy",

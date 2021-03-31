@@ -4,7 +4,7 @@
 
 ## Description
 
-
+A travel destination API that includes a list of destinations and corresponding reviews. A user can make API calls to search, create, update, or delete destinations and reviews.
 
 ## Technologies used
 
@@ -23,7 +23,30 @@
 
 ## Authentication
 
-This service requires no authentication to use. 
+This service requires no authentication to use.
+
+## Demo API
+
+To Demo this API, follow the installation instructions listed below and navigate to http://localhost:3000/index.html in your browser. \
+There you can live demo the following API calls:
+
+**_Note: To search destination by country, state, or city, search params must be lowercase_**
+
+ Action |  Route | Description
+| :--- | --- | ---: |
+| Get    | /destinations | _Fetches all destinations_ |
+| Get    | /destinations?country={country} | _Fetches destinations that match a country_ |
+| Get    | /destinations?state={state} | _Fetches destinations that match a state_ |
+| Get    | /destinations?city={city} | _Fetches destinations that match a city_ |
+| Post   | /destinations | _Creates a destination_ |
+| Delete | /destinations/{destination_id} | _Deletes a destination_ |
+| Get    | /destinations/{destination_id} | _Fetches a single destination_ |
+| Patch  | /destinations/{destination_id} | _Updates a single destination_ |
+| Get    | /destinations{destination_id}/reviews | _Fetches all reviews for a destination_ |
+| Post   | /destinations{destination_id}/reviews | _Creates a review for a destination_     |
+| Delete | /destinations/{destination_id}/reviews/{review_id} | _Deletes a review for a destination_ |
+| Get    | /destinations/{destination_id}/reviews/{review_id} | _Fetches a single review for a destination_ |
+| Patch  | /destinations/{destination_id}/reviews/{review_id} | _Updates a single review for a destination_ |
 
 ## Responses & Errors
 
@@ -92,9 +115,14 @@ $ rake db:test:prepare
 $ rake db:seed
 ```
 
+10. Prepare API documentation to view in browser:
+```
+$ rake swagger:docs
+```
+
 The database should now be correctly set up. And you may start a local server to interact with the project.
 
-10. To start a local server, open your default browser and type "localhost:3000" into the search bar and press enter. Here, you will see the live server.
+11. To start a local server, open your default browser and type "localhost:3000" into the search bar and press enter. Here, you will see the live server.
 
 ## Running Tests
 * This application was created using test-driven development (TDD).
@@ -109,9 +137,15 @@ $ rspec
 ## License
 > [GPLv3](https://choosealicense.com/licenses/gpl-3.0/)\
 > Andy Lawson &copy; 2021
+> Zack Rutledge &copy; 2021
+> Jo Miller &copy; 2021
 
 * * *
 
 ## Contact Information
 
 Reach Andy via <a href="https://www.linkedin.com/in/andrew-lawson-dev/" target="_blank">Linkedin</a> or <a href="alawson89@gmail.com" target="_blank">email</a></li>.
+
+Reach Zack via <a href="https://www.linkedin.com/in/zack-rutledge762/" target="_blank">Linkedin</a> or <a href="thorgrim88@gmail.com" target="_blank">email</a></li>.
+
+Reach Jo via <a href="https://www.linkedin.com/in/jomillerde/" target="_blank">Linkedin</a> or <a href="joannadawnmiller@gmail.com" target="_blank">email</a></li>.
