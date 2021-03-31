@@ -31,6 +31,19 @@ class DestinationsController < ApplicationController
     json_response(@destination)
   end
 
+  swagger_api :random do
+    summary "Fetches a random destination"
+    notes "Fetches a single random destination from the database."
+    response :ok, "Success"
+    response :not_found
+    response :unprocessable_entity
+  end
+  def random
+    ids = Destination.pluck(:id)
+    @random_destination = Destination.find(ids.sample)
+    json_response(@random_destination)
+  end
+
   swagger_api :create do
     summary "Creates a new destination"
     param :form, :country, :string, :required, "Country"

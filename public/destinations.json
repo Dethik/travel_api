@@ -233,6 +233,34 @@
           "method": "delete"
         }
       ]
+    },
+    {
+      "path": "/random",
+      "operations": [
+        {
+          "summary": "Fetches a random destination",
+          "notes": "Fetches a single random destination from the database.",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": null,
+              "message": "Success"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 422,
+              "responseModel": null,
+              "message": "Unprocessable Entity"
+            }
+          ],
+          "nickname": "Destinations#random",
+          "method": "get"
+        }
+      ]
     }
   ],
   "authorizations": null

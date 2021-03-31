@@ -4,7 +4,7 @@
 
 ## Description
 
-A travel destination API that includes a list of destinations and corresponding reviews. A user can make API calls to search, create, update, or delete destinations and reviews.
+A travel destination API that includes a list of destinations and corresponding reviews. A user can make API calls to get a random destination, or search, create, update, and delete destinations and reviews.
 
 ## Technologies used
 
@@ -23,7 +23,7 @@ A travel destination API that includes a list of destinations and corresponding 
 
 ## Authentication
 
-This service requires no authentication to use.
+This service requires no authentication to use. **CORS**! YES! YOU NEED IT, WE GOT IT!
 
 ## Demo API
 
@@ -34,6 +34,7 @@ There you can live demo the following API calls:
 
  Action |  Route | Description
 | :--- | --- | ---: |
+| <span style="color:blue">Get</span> | /random | _Fetches a random destination_ |
 | <span style="color:blue">Get</span> | /destinations | _Fetches all destinations_ |
 | <span style="color:blue">Get</span> | /destinations?country={country} | _Fetches destinations that match a country_ |
 | <span style="color:blue">Get</span> | /destinations?state={state} | _Fetches destinations that match a state_ |
@@ -136,8 +137,8 @@ $ rspec
 
 ## License
 > [GPLv3](https://choosealicense.com/licenses/gpl-3.0/)\
-> Andy Lawson &copy; 2021
-> Zack Rutledge &copy; 2021
+> Andy Lawson &copy; 2021 <br>
+> Zack Rutledge &copy; 2021 <br>
 > Jo Miller &copy; 2021
 
 * * *
