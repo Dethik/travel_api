@@ -34,19 +34,19 @@ There you can live demo the following API calls:
 
  Action |  Route | Description
 | :--- | --- | ---: |
-| Get    | /destinations | _Fetches all destinations_ |
-| Get    | /destinations?country={country} | _Fetches destinations that match a country_ |
-| Get    | /destinations?state={state} | _Fetches destinations that match a state_ |
-| Get    | /destinations?city={city} | _Fetches destinations that match a city_ |
-| Post   | /destinations | _Creates a destination_ |
-| Delete | /destinations/{destination_id} | _Deletes a destination_ |
-| Get    | /destinations/{destination_id} | _Fetches a single destination_ |
-| Patch  | /destinations/{destination_id} | _Updates a single destination_ |
-| Get    | /destinations{destination_id}/reviews | _Fetches all reviews for a destination_ |
-| Post   | /destinations{destination_id}/reviews | _Creates a review for a destination_     |
-| Delete | /destinations/{destination_id}/reviews/{review_id} | _Deletes a review for a destination_ |
-| Get    | /destinations/{destination_id}/reviews/{review_id} | _Fetches a single review for a destination_ |
-| Patch  | /destinations/{destination_id}/reviews/{review_id} | _Updates a single review for a destination_ |
+| <span style="color:blue">Get</span> | /destinations | _Fetches all destinations_ |
+| <span style="color:blue">Get</span> | /destinations?country={country} | _Fetches destinations that match a country_ |
+| <span style="color:blue">Get</span> | /destinations?state={state} | _Fetches destinations that match a state_ |
+| <span style="color:blue">Get</span> | /destinations?city={city} | _Fetches destinations that match a city_ |
+| <span style="color:green">Post</span> | /destinations | _Creates a destination_ |
+| <span style="color:red">Delete</span> | /destinations/{destination_id} | _Deletes a destination_ |
+| <span style="color:blue">Get</span> | /destinations/{destination_id} | _Fetches a single destination_ |
+| <span style="color:gold">Patch</span> | /destinations/{destination_id} | _Updates a single destination_ |
+| <span style="color:blue">Get</span> | /destinations{destination_id}/reviews | _Fetches all reviews for a destination_ |
+| <span style="color:green">Post</span> | /destinations{destination_id}/reviews | _Creates a review for a destination_     |
+| <span style="color:red">Delete</span> | /destinations/{destination_id}/reviews/{review_id} | _Deletes a review for a destination_ |
+| <span style="color:blue">Get</span> | /destinations/{destination_id}/reviews/{review_id} | _Fetches a single review for a destination_ |
+| <span style="color:gold">Patch</span> | /destinations/{destination_id}/reviews/{review_id} | _Updates a single review for a destination_ |
 
 ## Responses & Errors
 
