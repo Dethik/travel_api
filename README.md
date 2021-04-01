@@ -43,8 +43,8 @@ There you can live demo the following API calls:
 | <span style="color:red">Delete</span> | /destinations/{destination_id} | _Deletes a destination_ |
 | <span style="color:blue">Get</span> | /destinations/{destination_id} | _Fetches a single destination_ |
 | <span style="color:gold">Patch</span> | /destinations/{destination_id} | _Updates a single destination_ |
-| <span style="color:blue">Get</span> | /destinations{destination_id}/reviews | _Fetches all reviews for a destination_ |
-| <span style="color:green">Post</span> | /destinations{destination_id}/reviews | _Creates a review for a destination_     |
+| <span style="color:blue">Get</span> | /destinations/{destination_id}/reviews | _Fetches all reviews for a destination_ |
+| <span style="color:green">Post</span> | /destinations/{destination_id}/reviews | _Creates a review for a destination_     |
 | <span style="color:red">Delete</span> | /destinations/{destination_id}/reviews/{review_id} | _Deletes a review for a destination_ |
 | <span style="color:blue">Get</span> | /destinations/{destination_id}/reviews/{review_id} | _Fetches a single review for a destination_ |
 | <span style="color:gold">Patch</span> | /destinations/{destination_id}/reviews/{review_id} | _Updates a single review for a destination_ |
@@ -98,32 +98,22 @@ $ bundle install
 
 6. Create a database for this project by typing the following into your terminal while located in the root directory:
 ```
-$ rake db:create
+$ rake db:setup
 ```
 
-7. Add all tables to the database by typing the following in your terminal:
-```
-$ rake db:migrate
-```
-
-8. Mirror the migration database changes in the test database:
-```
-$ rake db:test:prepare
-```
-
-9. Seed the database with supplementary data:
+7. Seed the database with supplementary data:
 ```
 $ rake db:seed
 ```
 
-10. Prepare API documentation to view in browser:
+8. Prepare API documentation to view in browser:
 ```
 $ rake swagger:docs
 ```
 
 The database should now be correctly set up. And you may start a local server to interact with the project.
 
-11. To start a local server, open your default browser and type "localhost:3000" into the search bar and press enter. Here, you will see the live server.
+9. To start a local server, open your default browser and type "localhost:3000" into the search bar and press enter. Here, you will see the live server.
 
 ## Running Tests
 * This application was created using test-driven development (TDD).
