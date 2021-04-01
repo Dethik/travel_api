@@ -43,8 +43,8 @@ There you can live demo the following API calls:
 | <span style="color:red">Delete</span> | /destinations/{destination_id} | _Deletes a destination_ |
 | <span style="color:blue">Get</span> | /destinations/{destination_id} | _Fetches a single destination_ |
 | <span style="color:gold">Patch</span> | /destinations/{destination_id} | _Updates a single destination_ |
-| <span style="color:blue">Get</span> | /destinations{destination_id}/reviews | _Fetches all reviews for a destination_ |
-| <span style="color:green">Post</span> | /destinations{destination_id}/reviews | _Creates a review for a destination_     |
+| <span style="color:blue">Get</span> | /destinations/{destination_id}/reviews | _Fetches all reviews for a destination_ |
+| <span style="color:green">Post</span> | /destinations/{destination_id}/reviews | _Creates a review for a destination_     |
 | <span style="color:red">Delete</span> | /destinations/{destination_id}/reviews/{review_id} | _Deletes a review for a destination_ |
 | <span style="color:blue">Get</span> | /destinations/{destination_id}/reviews/{review_id} | _Fetches a single review for a destination_ |
 | <span style="color:gold">Patch</span> | /destinations/{destination_id}/reviews/{review_id} | _Updates a single review for a destination_ |
